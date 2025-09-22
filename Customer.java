@@ -10,3 +10,14 @@ public class Customer {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+     public Invoice purchaseVehicle(
+            SalesPerson sales,
+            Vehicle vehicle,
+            double negotiatedPrice,
+            double taxes,
+            double licenseFees,
+            List<DealerOption> options,
+            TradeInVehicle tradeIn
+    ) {
+        return sales.createInvoice(this, vehicle, negotiatedPrice, taxes, licenseFees, options, tradeIn);
+    }
