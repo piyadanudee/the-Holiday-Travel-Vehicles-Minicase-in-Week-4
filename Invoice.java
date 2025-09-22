@@ -24,8 +24,10 @@ public class Invoice {
         this.tradeInVehicle = tradeInVehicle;
         this.date = new Date();
     }
-
-    public double calculateTotal() {
+public void addOptionToInvoice(DealerOption option) {
+        if (option != null) options.add(option);
+    }
+public double calculateTotal() {
         double optionsTotal = options.stream().mapToDouble(DealerOption::getPrice).sum();
         double tradeInAllowance = tradeInVehicle != null ? tradeInVehicle.getTradeInAllowance() : 0.0;
         return negotiatedPrice + taxes + licenseFees + optionsTotal - tradeInAllowance;
