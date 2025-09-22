@@ -25,10 +25,6 @@ public class Invoice {
         this.date = new Date();
     }
 
-   public void addOptionToInvoice(DealerOption option) {
-        if (option != null) options.add(option);
-    }
-
     public double calculateTotal() {
         double optionsTotal = options.stream().mapToDouble(DealerOption::getPrice).sum();
         double tradeInAllowance = tradeInVehicle != null ? tradeInVehicle.getTradeInAllowance() : 0.0;
